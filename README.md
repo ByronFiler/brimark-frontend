@@ -32,10 +32,13 @@ To build the documentation:
 To build the test coverage document:
 > npm run ts-coverage
 
-APIs Used:
+API(s) Used:
 - [Mocha](https://mochajs.org/) Javascript Testing Library
 - [Chai](https://www.chaijs.com/) BDD / TDD assertion library
 - [TypeDoc](https://typedoc.org/) Documentation generator for TypeScript projects.
 - [ParcelJS](https://parceljs.org/) Web application bundler
 - [Type-Coverage](https://github.com/plantain-00/type-coverage) A CLI tool to check type coverage for typescript code
 - [TypeScript-Coverage-Report](https://www.npmjs.com/package/typescript-coverage-report) command line tool for generating TypeScript coverage reports
+  
+CSS Framework(s): 
+- [Materialize-CSS](https://materializecss.com/) A modern responsive front-end framework based on Material Design
