@@ -1,4 +1,4 @@
-const app : HTMLElement = document.body;
+const app : HTMLElement | null = document.getElementById('app');
 
 /**
  * Sets the message inside of the paragraph elemeent
@@ -11,6 +11,14 @@ export function createParagraphWithMessage(message: string) : HTMLParagraphEleme
     return p;
 }
 
-let p : HTMLParagraphElement = createParagraphWithMessage("Hello, welcome to parcel.js!");
-
-app.append(p);
+if(app) {
+    let p : HTMLParagraphElement = createParagraphWithMessage("Appended using TypeScript!");
+    let div : HTMLDivElement = document.createElement("div");
+        div.classList.add("col", "s12", "m6", "l6");
+        div.appendChild(p);
+    let parent : HTMLElement | null = app.querySelector("#app .row:first-of-type");
+    
+    if(parent) {
+        parent.appendChild(div);
+    }
+}
