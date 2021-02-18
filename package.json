@@ -4,7 +4,8 @@
   "description": "npm install -g parcel-bundler",
   "main": "index.js",
   "scripts": {
-    "dev": "npm test && parcel *.html",
+    "local": "parcel *.html",
+    "local-with-tests": "npm test && npm run local",
     "build": "parcel build ./dist/",
     "test": "mocha -r jsdom-global/register -r ts-node/register tests/*.ts",
     "ts-docs": "typedoc",
