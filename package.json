@@ -1,0 +1,40 @@
+{
+  "name": "brimark-frontend",
+  "version": "1.0.0",
+  "description": "npm install -g parcel-bundler",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm test && parcel *.html",
+    "build": "parcel build ./dist/",
+    "test": "mocha -r jsdom-global/register -r ts-node/register tests/*.ts",
+    "ts-docs": "typedoc",
+    "ts-coverage": "typescript-coverage-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByronFiler/brimark-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ByronFiler/brimark-frontend/issues"
+  },
+  "homepage": "https://github.com/ByronFiler/brimark-frontend#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "chai": "^4.3.0",
+    "jsdom": "^16.4.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^8.3.0",
+    "parcel-bundler": "^1.12.4",
+    "ts-node": "^9.1.1",
+    "type-coverage": "^2.15.1",
+    "typescript": "^4.1.5",
+    "typescript-coverage-report": "^0.5.0"
+  },
+  "dependencies": {
+    "typedoc": "^0.20.25"
+  }
+}

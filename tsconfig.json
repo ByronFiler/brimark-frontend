@@ -1,0 +1,25 @@
+
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "DOM",
+      "ES5"
+    ]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "node_modules", 
+    "**/*.spec.ts",
+    "./dist/"
+  ],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "docs"
+  }
+}

@@ -1,0 +1,18 @@
+# Ignore built ts files
+dist/**/*
+
+# Dependency directory
+node_modules
+
+# Editors
+.idea
+*.iml
+
+# removing cache 
+.cache
+
+# Type Coverage
+.type-coverage 
+
+# removing lock files
+*-lock.json
