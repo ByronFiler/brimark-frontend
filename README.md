@@ -11,6 +11,9 @@
 4. To install all the packages from the package.json:
 > npm install
 
+5. To fix any severity vulnerabilities:
+> npm audit fix
+
 To run the project locally use the command. *__Note__:  this will run the tests first by default and then run the server!*
 > npm run dev
 
