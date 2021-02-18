@@ -14,8 +14,11 @@
 5. To fix any severity vulnerabilities:
 > npm audit fix
 
-To run the project locally use the command. *__Note__:  this will run the tests first by default and then run the server!*
-> npm run dev
+To run the project locally use the command.
+> npm run local
+
+To run the project locally but with tests first:
+> npm run local-with-tests
 
 To run the tests:
 > npm test
