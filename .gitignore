@@ -16,3 +16,6 @@ node_modules
 
 # removing lock files
 *-lock.json
+
+# MACOS
+.DS_Store
