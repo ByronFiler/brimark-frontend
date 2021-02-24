@@ -6,7 +6,7 @@
   "scripts": {
     "local": "parcel *.html",
     "local-with-tests": "npm test && npm run local",
-    "build": "parcel *.html build ./dist/",
+    "build": "parcel build src/**/*.html --public-url ./",
     "test": "mocha -r jsdom-global/register -r ts-node/register tests/*.ts",
     "ts-docs": "typedoc",
     "ts-coverage": "typescript-coverage-report"
