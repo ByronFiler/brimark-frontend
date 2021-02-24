@@ -14,7 +14,7 @@ export function createParagraphWithMessage(message: string) : HTMLParagraphEleme
 if(app) {
     let p : HTMLParagraphElement = createParagraphWithMessage("Appended using TypeScript!");
     let div : HTMLDivElement = document.createElement("div");
-        div.classList.add("col", "s12", "m6", "l6");
+        div.classList.add("col", "s0", "m0", "l0");
         div.appendChild(p);
     let parent : HTMLElement | null = app.querySelector("#app .row:first-of-type");
     
