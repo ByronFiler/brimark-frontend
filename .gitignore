@@ -19,3 +19,9 @@ node_modules
 
 # MACOS
 .DS_Store
+
+# ts-coverage
+coverage-ts
+
+# docs
+docs
