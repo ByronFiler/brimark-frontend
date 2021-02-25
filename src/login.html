@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/materialize/css/materialize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <body>
+                <div class="bear">
+                    <div class="bear-head">
+                        <div class="bear-ear left">
+                            <div class="inner-ear"></div>
+                        </div>
+                        <div class="bear-ear right">
+                            <div class="inner-ear"></div>
+                        </div>
+                    </div>
+                    <div class="bear-body">
+                        <div class="bear-face">
+                            <div class="bear-eyes">
+                                <div class="bear-eye left">
+                                    <div class="inner-eye"></div>
+                                </div>
+                                <div class="bear-eye right">
+                                    <div class="inner-eye"></div>
+                                </div>
+                            </div>
+                            <div class="bear-mouth">
+                                <div class="bear-nose">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bear-arms">
+                        <div class="bear-arm left"></div>
+                        <div class="bear-arm right"></div>
+                    </div>
+                </div>
+                </body>
+                <form class="modal-content animate" action="/action_page.php" method="post">
+                    <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="submit" id="loginButton">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                        <span class="psw"><u><a href="#">Forgot password?</a></u></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
