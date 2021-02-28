@@ -21,5 +21,6 @@
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "docs"
-  }
+  },
+  "types": ["materialize-css"]
 }
