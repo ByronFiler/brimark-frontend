@@ -8,32 +8,119 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/bear.svg">
     <title>BriMark HomePage</title>
 </head>
 <body>
+    
     <section>
         <nav class="dark-theme">
             <div class="nav-wrapper container">
                 <a href="index.html" class="brand-logo"><img class="icon" src="assets/svg/bear.svg" alt="a brown bear with a pride flag behind it"></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+                <label for="popout-menu-status" class="sidenav-trigger"><i class="material-icons">menu</i></label>
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="#">Catalogue</a></li>
+                    <li><a href="login.html">Catalogue</a></li>
                     <li><a href="profile.html">Profile</a></li>
                 </ul>
-            </div>
+            </div>  
         </nav>
         
-    
+        <!-- if the javascript is disabled, enabling inputs control menu movement. -->
+        <input type="checkbox" name="popout-menu-status" id="popout-menu-status" autocomplete="off" hidden>
+        <label id="popout-menu-status-label" for="popout-menu-status"></label>
+
         <ul class="sidenav" id="mobile-demo">
+            <label for="popout-menu-status" id="close-menu"><i class="material-icons">close</i></label>
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Catalogue</a></li>
             <li><a href="profile.html">Profile</a></li>
         </ul>
+    
     </section>
             
-    <div id="app" class="container">
-        
+    <div class="container-fluid">
+        <div class="categories">
+            <div class="row category-container">
+                <div class="category-header">
+                    <h5 class="title">Electronics</h5>
+                    <a href="#">See all<i class="material-icons">arrow_forward</i></a>
+                </div>
+                <div class="category-items">
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£0.00</p>
+                    </div>
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£10.00</p>
+                    </div>
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£50.00</p>
+                    </div>
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£100.00</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row category-container">
+                <div class="category-header">
+                    <h5 class="title">Clothing</h5>
+                    <a href="#">See all<i class="material-icons">arrow_forward</i></a>
+                </div>
+                <div class="category-items">
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£0.00</p>
+                    </div>
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£10.00</p>
+                    </div>
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£50.00</p>
+                    </div>
+                    <div class="category-item col s3">
+                        <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <p>£100.00</p>
+                    </div>
+                </div>
+            </div>
+        <!-- <div class="row masonry-container" id="listings"> -->
+            <!-- <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/4681107/pexels-photo-4681107.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/933498/pexels-photo-933498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/2820134/pexels-photo-2820134.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/3687770/pexels-photo-3687770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000">
+            </div>
+            <div class="masonry-item">
+                <img src="https://images.pexels.com/photos/1390075/pexels-photo-1390075.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            </div> -->
+        </div>
     </div>
     <script src="assets/materialize/js/materialize.js"></script>
     <script src="index.ts"></script>
