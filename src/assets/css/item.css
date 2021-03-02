@@ -1,0 +1,24 @@
+.item {
+    margin-left: auto;
+    margin-right: auto;
+}
+#buy{
+    display:block;
+    padding:0.35em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    text-decoration:none;
+    color:#FFFFFF;
+    background-color: black;
+
+}
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+}
+.bearimage {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width:30%;
+}
