@@ -77,6 +77,11 @@ h4{
     object-position: center;
 }
 
+.item p {
+    position:absolute;
+    top:0;
+    text-align: center;
+}
 
 
 .btn-bot {
