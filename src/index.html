@@ -8,17 +8,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="icon" type="image/svg+xml" href="./assets/svg/bear.svg">
     <title>BriMark HomePage</title>
 </head>
 <body>
-    
     <section>
         <nav class="dark-theme">
             <div class="nav-wrapper container">
                 <a href="index.html" class="brand-logo"><img class="icon" src="assets/svg/bear.svg" alt="a brown bear with a pride flag behind it"></a>
-                <!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
-                <label for="popout-menu-status" class="sidenav-trigger"><i class="material-icons">menu</i></label>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="login.html">Catalogue</a></li>
@@ -27,19 +26,13 @@
             </div>  
         </nav>
         
-        <!-- if the javascript is disabled, enabling inputs control menu movement. -->
-        <input type="checkbox" name="popout-menu-status" id="popout-menu-status" autocomplete="off" hidden>
-        <label id="popout-menu-status-label" for="popout-menu-status"></label>
-
         <ul class="sidenav" id="mobile-demo">
-            <label for="popout-menu-status" id="close-menu"><i class="material-icons">close</i></label>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">Catalogue</a></li>
+            <li><a href="login.html">Catalogue</a></li>
             <li><a href="profile.html">Profile</a></li>
         </ul>
-    
     </section>
-            
+
     <div class="container-fluid">
         <div class="categories">
             <div class="row category-container">
@@ -122,7 +115,8 @@
             </div> -->
         </div>
     </div>
-    <script src="assets/materialize/js/materialize.js"></script>
+    
+    <script src="navbar.ts"></script>
     <script src="index.ts"></script>
 </body>
 </html>
