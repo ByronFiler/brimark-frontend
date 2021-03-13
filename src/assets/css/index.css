@@ -1,67 +1,7 @@
-:root {
-    --popout-menu-status-label-overlay: rgba(0, 0, 0, 0.5);
-    --popout-menu-transition-time:  0.5s;
-}
-
 .container-fluid {
     width:100%;
     max-width: 1280px;
     margin: 0 auto;
-}
-
-.nav-wrapper label.sidenav-trigger {
-    color:var(--white);
-    cursor:pointer;
-}
-
-#popout-menu-status:checked ~ .sidenav {
-    transform: translateX(0%);
-    transition:var(--popout-menu-transition-time);
-    -moz-transition: var(--popout-menu-transition-time);
-    -o-transition: var(--popout-menu-transition-time);
-    -webkit-transition: var(--popout-menu-transition-time);
-}
-
-#popout-menu-status:checked ~ label[for="popout-menu-status"] {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color: var(--popout-menu-status-label-overlay);
-    z-index: 997; /** one less than the popout menu, so they can click it and uncheck the box. */
-}
-
-#popout-menu-status:not(:checked) ~ label[for="popout-menu-status"] {
-    position: relative;
-    top:inherit;
-    left:inherit;
-    width:0%;
-    height:0%;
-    z-index: auto;
-}
-
-#close-menu {
-    display:block;
-    text-align: right;
-    color:var(--black);
-}
-
-#popout-menu-status:not(:checked) ~ .sidenav {
-    transform: translateX(-105%);
-    transition: var(--popout-menu-transition-time);
-    -moz-transition: var(--popout-menu-transition-time);
-    -o-transition: var(--popout-menu-transition-time);
-    -webkit-transition: var(--popout-menu-transition-time);
-    
-}
-
-#close-menu > i {
-    cursor: pointer;
-} 
-
-.sidenav {
-    width:100%;
 }
 
 [type="radio"]:not(:checked),
@@ -70,7 +10,6 @@
   opacity: inherit;
   pointer-events: inherit;
 }
-
 
 .masonry-container {
     column-count: 5;
@@ -105,10 +44,6 @@
 
 .category-container {
     width:70%;
-    /* width:80%;
-    margin: 0 auto;
-    overflow: auto; 
-    height: auto; */
 }
 
 .category-header {
@@ -128,11 +63,7 @@
 /* Mobile first queries */
 
 /* Larger than mobile */
-@media (min-width: 400px) {
-    .sidenav {
-        width:300px;
-    }
-}
+@media (min-width: 400px) {}
 
 /* Larger than phablet */
 @media (min-width: 550px) {}
@@ -141,11 +72,7 @@
 @media (min-width: 750px) {}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {
-    .nav-wrapper label.sidenav-trigger {
-        display:none;
-    } 
-}
+@media (min-width: 1000px) {}
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
