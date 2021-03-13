@@ -1,0 +1,36 @@
+
+:root {
+    --white:#fff;
+    --dark-grey: #222;
+    --navbar-background-color: var(--dark-grey);
+    --navbar-hover-color: var(--dark-grey);
+    --navbar-hover-background-color:#f0f0f014;
+}
+
+nav.dark-theme {
+    background-color: var(--navbar-background-color) !important;
+    box-shadow: none;
+}
+
+.brand-logo {
+    height:100%;
+}
+
+.icon {
+    height:95%;
+    margin-top:1.5px;
+    border: 2px solid var(--white);
+    border-radius: 100%;
+}
+
+nav.dark-theme ul li.active {
+    background-color:var(--white);
+}
+
+nav.dark-theme ul li.active > a {
+    color:var(--navbar-hover-color);
+}
+
+nav.dark-theme ul a:hover {
+    background-color:var(--navbar-hover-background-color);
+}
