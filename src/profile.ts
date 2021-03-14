@@ -1,3 +1,5 @@
+import API from "./api";
+
 let itemsDomNode : HTMLElement| null = document.getElementById('items');
 let profileOverlay: HTMLElement | null = document.getElementById('overlay');
 let imageUrls = [
@@ -44,9 +46,9 @@ if(itemsDomNode) {
         });
     }
 
-    fetch('https://brimark.api.connieprice.co.uk/Search').then(response => {
-	    response.json().then(items => {
-           for(let item of items) {
+    API.searchForItem().then(response => {
+        response.json().then(items => {
+            for(let item of items) {
                 let rating : HTMLElement = document.createElement('div');
                 rating.classList.add("rating");
                 
@@ -71,6 +73,7 @@ if(itemsDomNode) {
                     itemDom.append(img, rating, p);
                 itemsDomNode?.appendChild(itemDom);
             }
-	    });
+        });
     });
+
 }
