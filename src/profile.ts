@@ -1,5 +1,21 @@
 let itemsDomNode : HTMLElement| null = document.getElementById('items');
 
+let imageUrls = [
+    'http://www.pixeden.com/media/k2/galleries/468/001-business-card-clip-brand-mock-up-vol-20-psd.jpg',
+    'http://www.graphicsfuel.com/wp-content/uploads/2015/11/branding-mockup-psd.jpg',
+    'http://www.pixeden.com/media/k2/galleries/511/001-business-card-mockup-vol-22-box-brand-psd.jpg',
+    'https://blog.spoongraphics.co.uk/wp-content/uploads/2013/mockup/23.jpg'
+]
+
+function getRandomNumber(minimum: number, maximum: number) : number {
+    return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+}
+
+function getRandomImageURL() : string {
+    let index: number = getRandomNumber(0, imageUrls.length -1);
+    return imageUrls[index];
+}
+
 if(itemsDomNode) {
     fetch('https://brimark.api.connieprice.co.uk/Search').then(response => {
 	    response.json().then(items => {
@@ -20,7 +36,7 @@ if(itemsDomNode) {
                 }
 
                 let img : HTMLImageElement = document.createElement('img');
-                    img.src = "http://www.pixeden.com/media/k2/galleries/468/001-business-card-clip-brand-mock-up-vol-20-psd.jpg";
+                    img.src = getRandomImageURL();
                 let p : HTMLElement = document.createElement('p');
                     p.innerText = `${item.title} (£${item.price})`;
                 let itemDom : HTMLElement = document.createElement('div');
