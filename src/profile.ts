@@ -1,5 +1,5 @@
 let itemsDomNode : HTMLElement| null = document.getElementById('items');
-
+let profileOverlay: HTMLElement | null = document.getElementById('overlay');
 let imageUrls = [
     'http://www.pixeden.com/media/k2/galleries/468/001-business-card-clip-brand-mock-up-vol-20-psd.jpg',
     'http://www.graphicsfuel.com/wp-content/uploads/2015/11/branding-mockup-psd.jpg',
@@ -17,6 +17,33 @@ function getRandomImageURL() : string {
 }
 
 if(itemsDomNode) {
+    const editButton : HTMLElement | null = document.getElementById('editButton');
+    if(editButton) {
+        editButton.addEventListener('click', function() {
+            // digusting, I would change this to != this.dataset.isclicked but cast typing seems weird in javascript.
+            this.dataset.isclicked = this.dataset.isclicked === "false" ? "true" : "false";
+
+
+            // god, I hope there's another way to do this - Jordan, I don't want to assign css like this. Transitions seem to be iffy when trying to keep states. Can't display: none; then display:block etc.
+            if(this.dataset.isclicked === "true") {
+                Object.assign(itemsDomNode?.style, {
+                    display: "none"
+                });
+                
+                Object.assign(profileOverlay?.style, {
+                    display: "block"
+                });
+            } else {
+                Object.assign(itemsDomNode?.style, {
+                    display: "grid"
+                });
+                Object.assign(profileOverlay?.style, {
+                    display: "none"
+                });
+            }
+        });
+    }
+
     fetch('https://brimark.api.connieprice.co.uk/Search').then(response => {
 	    response.json().then(items => {
            for(let item of items) {
