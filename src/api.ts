@@ -19,11 +19,15 @@ async function get(url: string, params? : Record<string, string>) : Promise<Resp
 }
 
 async function post(url: string, data: Record<string, string>) : Promise<Response> {
-    const response = await fetch(url, {
+    // const response = await fetch(url, {
+    //     method: 'POST',
+    //     body: JSON.stringify(data)
+    // });
+    // return response.json();
+    return await fetch(url, {
         method: 'POST',
         body: JSON.stringify(data)
     });
-    return response.json();
 }
 
 export class API {
@@ -69,7 +73,7 @@ export class API {
         });
     }
 
-    public static getUserInfo(id: string, password: string) : Promise<Response> {
+    public static userLogin(id: string, password: string) : Promise<Response> {
         return post(`${API.URL}/User`, {
             id: id,
             password: password
