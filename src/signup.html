@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <title>Signup</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/bear.svg">
 </head>
 
 <body>
@@ -51,14 +52,17 @@
                 <li>Avoid using the same password for multiple sites.</li>
             </ul>
 
-            <label for="email"><b>Email</b></label>
+            <label for="usernameField"><b>Username</b></label>
+            <input id="usernameField" type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="emailField"><b>Email</b></label>
             <input id="emailField" type="text" placeholder="Enter Email" name="email" required>
 
-            <label for="psw"><b>Password</b></label>
+            <label for="passwordField"><b>Password</b></label>
             <input id="passwordField" type="password" placeholder="Enter Password" name="psw" minlength="8" maxlength="64" required>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input id="password2Field" type="password" placeholder="Repeat Password" name="psw-repeat" minlength="8" maxlength="64" required>
+            <label for="passwordRepeatField"><b>Repeat Password</b></label>
+            <input id="passwordRepeatField" type="password" placeholder="Repeat Password" name="psw-repeat" minlength="8" maxlength="64" required>
 
             <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
