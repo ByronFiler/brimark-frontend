@@ -1,5 +1,10 @@
-const signupForm : HTMLElement | null = document.getElementById('signupForm');
+import API from "./api";
 
+const signupForm : HTMLElement | null = document.getElementById('signupForm');
+const username : HTMLInputElement = document.getElementById('usernameField') as HTMLInputElement;
+const email : HTMLInputElement = document.getElementById('emailField') as HTMLInputElement;
+const password: HTMLInputElement = document.getElementById('passwordField') as HTMLInputElement;
+const password2: HTMLInputElement = document.getElementById('passwordRepeatField') as HTMLInputElement;
 
 function isValidEmail(email: string) : boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,19 +20,15 @@ if(signupForm) {
     
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const email : HTMLInputElement | null = (document.getElementById('emailField') as HTMLInputElement);
-        const password: HTMLInputElement | null = (document.getElementById('passwordField') as HTMLInputElement);
-        const password2: HTMLInputElement | null = (document.getElementById('password2Field') as HTMLInputElement);
-        
         // we know they they exist and the user hasn't messed with the page at all
-        if(email && password && password2) {
+        if(username && email && password && password2) {
             // rechecking they've all been filled out as the user can remove the required tag.
             // // const emailValue : string = email
+            const usernameValue : string = username.value.trim();
             const emailValue : string = email.value.trim();
             const passwordValue: string = password.value.trim();
             const passwordValue2: string = password2.value.trim();
 
-            console.log(isValidEmail(emailValue), isValidPassword(passwordValue), isValidPassword(passwordValue2));
             if(!isValidEmail(emailValue)) {
                 // display error
             } else {
@@ -38,7 +39,9 @@ if(signupForm) {
                         // weird error idk as passwords are the same, so should match?
                     } else {
                         // make a request to the server.
-                        fetch('')
+                        API.registerAccount(usernameValue, emailValue, passwordValue).then(response => {
+                            console.log(response);
+                        });
                     }
                 }
             }
