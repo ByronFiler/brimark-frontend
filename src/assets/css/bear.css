@@ -1,0 +1,167 @@
+:root {
+    --black: #000;
+    --bear-skin-color:#664235;
+    --bear-arm-color:#55372C;
+    --bear-arm-distance-from-top: 40%;
+    --bear-arm-offset: 7%;
+    --bear-ear-offset: 9%;
+    --bear-eye-outer-color: var(--black);
+    --bear-mouth-skin-color: #DD9A54;
+    --bear-nose-color: var(--black);
+    --bear-animation-length: 5s;
+}
+
+
+.bear {
+    background-image: url("https://www.tripridetn.org/wp-content/uploads/pride-flags-11.jpg");
+
+    /* Full height */
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+    height: 30%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom: 30%; /* remove this an the set height & width, if you want it set to certain height / width */
+    border-radius: 100%;
+    position:relative;
+    overflow:hidden;
+    border: 1vw solid var(--black);
+}
+
+.bear .bear-body {
+    background-color:var(--bear-skin-color);
+    width: 70%;
+    height: 80%;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translate(-50%, 0%);
+    border-radius: 35% 35% 0% 0%;
+    z-index:1;
+    overflow:hidden;
+}
+
+.bear .bear-arms .bear-arm {
+    background-color:var(--bear-arm-color);
+    width: 30%;
+    height: 80%;
+    border-radius:75% 80% 80% 75%;
+    position:absolute;
+}
+
+.bear .bear-arms .bear-arm.left {
+    left: var(--bear-arm-offset);
+    transform: rotateZ(20deg);
+    top: var(--bear-arm-distance-from-top);
+}
+
+.bear .bear-arms .bear-arm.right {
+    right: var(--bear-arm-offset);
+    transform: rotateZ(-20deg);
+    top: var(--bear-arm-distance-from-top);
+}
+
+.bear .bear-head .bear-ear {
+    background-color:var(--bear-skin-color);
+    width:27%;
+    height:27%;
+    border-radius:100%;
+    position:absolute;
+    top:18%;
+}
+
+.bear .bear-head .bear-hat {
+    background-color:#DD9A54;
+    width:100%;
+    height:50px;
+    position:absolute;
+    top:0;
+}
+
+.bear .bear-head .bear-ear .inner-ear {
+    background-color:#DD9A54;
+    width:50%;
+    height:50%;
+    border-radius:100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.bear .bear-head .bear-ear.right {
+    right:var(--bear-ear-offset);
+}
+
+.bear .bear-head .bear-ear.left {
+    left:var(--bear-ear-offset);
+}
+
+.bear .bear-body .bear-face {
+    /*   border:1px solid #000; */
+    width:50%;
+    height:100%;
+    margin:0 auto;
+    margin-top:30%;
+}
+.bear .bear-body .bear-face .bear-eyes {
+    position:absolute;
+    width:50%;
+    height:54%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bear .bear-body .bear-face .bear-eyes .bear-eye {
+    background-color:var(--bear-eye-outer-color);
+    width:25%;
+    height:20%;
+    position:absolute;
+    border-radius:100%;
+}
+
+.bear .bear-body .bear-face .bear-eyes .bear-eye.left {
+    left:0;
+    top:0;
+}
+
+.bear .bear-body .bear-face .bear-eyes .bear-eye.right {
+    right:0;
+    top:0;
+}
+
+.bear .bear-body .bear-face .bear-eyes .bear-eye .inner-eye {
+    background-color:var(--white);
+    width:20%;
+    height:20%;
+    position:absolute;
+    top:0;
+    right:0;
+    border-radius:100%;
+    transform:translate(-100%,80%);
+}
+
+.bear .bear-body .bear-face .bear-mouth {
+    background-color:var(--bear-mouth-skin-color);
+    width: 80%;
+    height: 35%;
+    margin: 0 auto;
+    border-radius:40% 40% 40% 40%;
+    position:relative;
+    z-index:2;
+    overflow:hidden;
+}
+
+.bear .bear-body .bear-face .bear-mouth .bear-nose {
+    background-color:var(--bear-nose-color);
+    width:50%;
+    height:20%;
+    position:absolute;
+    left:50%;
+    top:0;
+    transform: translate(-50%, 100%);
+    border-radius: 100%;
+}
