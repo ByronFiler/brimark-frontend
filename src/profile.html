@@ -33,18 +33,46 @@
             <li><a href="profile.html">Profile</a></li>
         </ul>
     </section>
+
+    
+    
     <div class="container">
         <img class="bearlogo" src="assets/svg/bear.svg"  alt="a brown bear with a pride flag behind it">
-        <form>
-            <label for="name">name:</label><br>
-            <input type="text" id="name" size="10" name="name"><br>
-        </form>
-        <div>
-            <button class='btn-bot'>Edit</button>
+        <a id="editButton" class="edit-profile-button btn-floating btn-large" data-isclicked="false">
+            <i class="material-icons">edit</i>
+        </a>
+        
+        <div id="overlay" class="edit-profile-overlay">
+            <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="last_name" type="text" class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn">Save</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
         </div>
+
         <div class="item-container" id="items">
 
-            <!-- <div class="item">
+            <div class="item">
             <img src="http://www.pixeden.com/media/k2/galleries/468/001-business-card-clip-brand-mock-up-vol-20-psd.jpg">
             <div class="rating">
                 <span class="star"><i class="material-icons">star</i></span>
@@ -143,7 +171,7 @@
                 <span class="star"><i class="material-icons">star_half</i></span>
                 <span class="star"><i class="material-icons">star_border</i></span>
             </div>
-        </div> -->
+        </div>
 
 
         </div>
