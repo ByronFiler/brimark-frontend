@@ -35,10 +35,11 @@ export class API {
     
     /** GET */
     public static searchForItem(query?: string) : Promise<Response> {
+        const url : string = `${API.URL}/Search`;
         if(!query) {
-            return get(`${API.URL}/Search`);
+            return get(url);
         } else {
-            return get(`${API.URL}/Search`, {
+            return get(url, {
                 query: query
             });
         }
