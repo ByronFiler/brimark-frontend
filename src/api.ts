@@ -30,6 +30,10 @@ async function post(url: string, data: Record<string, string>) : Promise<Respons
     });
 }
 
+// Login 500, 403 (body, HAS_NOT_ACTIVATED OR INVALID_CREDENTIALS), 200, 400
+// Activate 500, 200 = OK, 204(ALREADY_ACTIVATE, NO_MATCHING_ACCOUNT) (No Content)
+// Search 200, 204, 500
+// getItem 200, 204, 500
 export class API {
     private static readonly URL : string = 'https://brimark.api.connieprice.co.uk' 
     
@@ -51,7 +55,7 @@ export class API {
         });
     }
 
-    public static getItemById(id: string) : Promise<Response> {
+    public static getItemDetailsById(id: string) : Promise<Response> {
         return get(`${API.URL}/Item`, {
             id: id
         });
