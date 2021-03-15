@@ -7,5 +7,11 @@ const password: HTMLInputElement = document.getElementById('password') as HTMLIn
 if(loginForm) {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
+
+        let usernameOrEmailValue : string = usernameOrEmail.value.trim();
+        let passwordValue : string = password.value.trim();
+        API.userLogin(usernameOrEmailValue, passwordValue).then(response => {
+            console.log(response);
+        });
     });
 }
