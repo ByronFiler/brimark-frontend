@@ -30,15 +30,31 @@ async function post(url: string, data: Record<string, string>) : Promise<Respons
     });
 }
 
-// Login 500, 403 (body, HAS_NOT_ACTIVATED OR INVALID_CREDENTIALS), 200, 400
-// Activate 500, 200 = OK, 204(ALREADY_ACTIVATE, NO_MATCHING_ACCOUNT) (No Content)
-// Search 200, 204, 500
-// getItem 200, 204, 500
-export class API {
-    private static readonly URL : string = 'https://brimark.api.connieprice.co.uk' 
+export namespace API {
+    export const URL : string = 'https://brimark.api.connieprice.co.uk';
+
+    export enum StatusCode {
+        OK = 200,
+        NO_CONTENT = 204,
+        BAD_REQUEST = 400,
+        FORBIDDEN = 403,
+        INTERNAL_SERVER_ERROR = 500     
+    }
+    
+    export enum Error {
+        HAS_NOT_ACTIVATED = "HAS_NOT_ACTIVATED",
+        INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
+        ALREADY_ACTIVATE = "ALREADY_ACTIVATE",
+        NO_MATCHING_ACCOUNT = "NO_MATCHING_ACCOUNT"
+    }
+
+    // Login 500, 403 (body, HAS_NOT_ACTIVATED OR INVALID_CREDENTIALS), 200, 400
+    // Activate 500, 200 = OK, 204(ALREADY_ACTIVATE, NO_MATCHING_ACCOUNT) (No Content)
+    // Search 200, 204, 500
+    // getItem 200, 204, 500
     
     /** GET */
-    public static searchForItem(query?: string) : Promise<Response> {
+    export function searchForItem(query?: string) : Promise<Response> {
         const url : string = `${API.URL}/Search`;
         if(!query) {
             return get(url);
@@ -49,13 +65,13 @@ export class API {
         }
     }    
     
-    public static getAccountById(id: string) : Promise<Response> {
+    export function getAccountById(id: string) : Promise<Response> {
         return get(`${API.URL}/Account`, {
             id: id
         });
     }
 
-    public static getItemDetailsById(id: string) : Promise<Response> {
+    export function getItemDetailsById(id: string) : Promise<Response> {
         return get(`${API.URL}/Item`, {
             id: id
         });
@@ -64,13 +80,13 @@ export class API {
     /** POST */
 
     // will need to ask about this one.
-    public static activateAccount(hash: string) : Promise<Response> {
+    export function activateAccount(hash: string) : Promise<Response> {
         return post(`${API.URL}/Activate`, {
             hash: hash
         });
     }
     
-    public static registerAccount(username: string, email: string, password: string) : Promise<Response> {
+    export function registerAccount(username: string, email: string, password: string) : Promise<Response> {
         return post(`${API.URL}/Registration`, {
             username: username,
             email: email,
@@ -78,12 +94,13 @@ export class API {
         });
     }
 
-    public static userLogin(id: string, password: string) : Promise<Response> {
+    export function userLogin(id: string, password: string) : Promise<Response> {
         return post(`${API.URL}/User`, {
             id: id,
             password: password
         });
     }
 }
+
 
 export default API;
