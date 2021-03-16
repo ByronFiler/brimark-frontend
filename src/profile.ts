@@ -46,34 +46,36 @@ if(itemsDomNode) {
         });
     }
 
-    API.searchForItem().then(response => {
-        response.json().then(items => {
-            for(let item of items) {
-                let rating : HTMLElement = document.createElement('div');
-                rating.classList.add("rating");
+    // not working currently, as we need to find the users id to get the items instead.
+    // API.searchForItem().then(response => {
+    //     response.json().then(items => {
+    //         for(let item of items) {
+    //             let rating : HTMLElement = document.createElement('div');
+    //             rating.classList.add("rating");
                 
-                let randomStars: number = Math.random() * (5 - 1) + 1;
-                // generate stars
-                for(let i=0; i < randomStars; i++) {
-                    let icon : HTMLElement = document.createElement('i');
-                        icon.classList.add("material-icons");
-                        icon.innerText = "star";
-                    let span : HTMLElement = document.createElement('span');
-                        span.classList.add("star");
-                        span.appendChild(icon);
-                    rating.appendChild(span);
-                }
+    //             let randomStars: number = Math.random() * (5 - 1) + 1;
 
-                let img : HTMLImageElement = document.createElement('img');
-                    img.src = getRandomImageURL();
-                let p : HTMLElement = document.createElement('p');
-                    p.innerText = `${item.title} (£${item.price})`;
-                let itemDom : HTMLElement = document.createElement('div');
-                    itemDom.classList.add('item');
-                    itemDom.append(img, rating, p);
-                itemsDomNode?.appendChild(itemDom);
-            }
-        });
-    });
+    //             // generate stars
+    //             for(let i=0; i < randomStars; i++) {
+    //                 let icon : HTMLElement = document.createElement('i');
+    //                     icon.classList.add("material-icons");
+    //                     icon.innerText = "star";
+    //                 let span : HTMLElement = document.createElement('span');
+    //                     span.classList.add("star");
+    //                     span.appendChild(icon);
+    //                 rating.appendChild(span);
+    //             }
+
+    //             let img : HTMLImageElement = document.createElement('img');
+    //                 img.src = getRandomImageURL();
+    //             let p : HTMLElement = document.createElement('p');
+    //                 p.innerText = `${item.title} (£${item.price})`;
+    //             let itemDom : HTMLElement = document.createElement('div');
+    //                 itemDom.classList.add('item');
+    //                 itemDom.append(img, rating, p);
+    //             itemsDomNode?.appendChild(itemDom);
+    //         }
+    //     });
+    // });
 
 }
