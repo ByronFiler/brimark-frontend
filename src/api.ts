@@ -19,14 +19,17 @@ async function get(url: string, params? : Record<string, string>) : Promise<Resp
 }
 
 async function post(url: string, data: Record<string, string>) : Promise<Response> {
-    // const response = await fetch(url, {
-    //     method: 'POST',
-    //     body: JSON.stringify(data)
-    // });
-    // return response.json();
-    return await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(data)
+    const lastCharacter : string =  String(url.split('').pop());
+    let tempURL : string = url;
+        
+    if(lastCharacter !== '?') {
+        tempURL += '?';
+    }
+
+    tempURL += new URLSearchParams(data);
+
+    return await fetch(tempURL, {
+        method: 'POST'
     });
 }
 
@@ -46,6 +49,7 @@ export namespace API {
         NO_CONTENT = 204,
         BAD_REQUEST = 400,
         FORBIDDEN = 403,
+        METHOD_NOT_ALLOWED = 405,
         INTERNAL_SERVER_ERROR = 500     
     }
     
