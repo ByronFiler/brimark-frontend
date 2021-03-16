@@ -30,6 +30,14 @@ async function post(url: string, data: Record<string, string>) : Promise<Respons
     });
 }
 
+export interface searchForItemParams {
+    query: string, 
+    brand?: string, 
+    sizing?: string, 
+    minimumPrice?: number, 
+    maximumPrice?: number
+}
+
 export namespace API {
     export const URL : string = 'https://brimark.api.connieprice.co.uk';
 
@@ -54,23 +62,63 @@ export namespace API {
     // getItem 200, 204, 500
     
     /** GET */
-    export function searchForItem(query?: string) : Promise<Response> {
+
+    /** 
+         * Searches for an item via a query
+         * @param {string} query the query you want to search for
+         * @example 
+         * API.searchForItem("boots").then(response => {
+         *      if(response.code === API.StatusCode.OK) {
+         *          // okay request
+         *          let jsonData = response.json();
+         *          // do something with the data?
+         *      }
+         * });
+         * @returns {Promise<Repsonse>}
+     */
+    export function searchForItem(params: searchForItemParams) : Promise<Response> {
         const url : string = `${API.URL}/Search`;
-        if(!query) {
-            return get(url);
-        } else {
-            return get(url, {
-                query: query
-            });
+        let data : Record<string, string> = {};
+        
+        for (let [key, value] of Object.entries(params)) {
+            data[key] = String(value);
         }
+       
+        return get(url, data);
     }    
-    
+
+    /** 
+         * Gets the account by Id
+         * @param {string} id the id of the account that want to get  
+         * @example 
+         * API.getAccountById("0").then(response => {
+         *      if(response.code === API.StatusCode.OK) {
+         *          // okay request
+         *          let jsonData = response.json();
+         *          // do something with the data?
+         *      }
+         * });
+         * @returns {Promise<Repsonse>}
+     */
     export function getAccountById(id: string) : Promise<Response> {
         return get(`${API.URL}/Account`, {
             id: id
         });
     }
 
+    /** 
+         * Gets the item details by Id
+         * @param {string} id the id of the item you want to get the details of 
+         * @example 
+         * API.getItemDetailsById("0").then(response => {
+         *      if(response.code === API.StatusCode.OK) {
+         *          // okay request
+         *          let jsonData = response.json();
+         *          // do something with the data?
+         *      }
+         * });
+         * @returns {Promise<Repsonse>}
+     */
     export function getItemDetailsById(id: string) : Promise<Response> {
         return get(`${API.URL}/Item`, {
             id: id
@@ -79,13 +127,57 @@ export namespace API {
 
     /** POST */
 
-    // will need to ask about this one.
-    export function activateAccount(hash: string) : Promise<Response> {
+    /** 
+         * Activates an account via an activation code
+         * @param {string} activationCode the activation code provided by the server (should be in the URL Params) 
+         * @example 
+         * API.activateAccount("5eb63bbbe01eeed093cb22bb8f5acdc3").then(response => {
+         *      switch(response.code) {
+         *          case API.StatusCode.OK:
+         *              // handle okay response
+         *              break;
+         *          case API.StatusCode.NO_CONTENT:
+         *              let jsonData = response.json();
+         *              jsonData.then(response => {
+         *                  if(response.error === API.Error.ALREADY_ACTIVE) {
+         *                      // handle this however you want, accounts already active? maybe redirect to the login and display a message?
+         *                  }
+         *                  if(response.error === API.Error.NO_MATCHING_ACCOUNT) {
+         *                      // random url that is not valid? redirect to login and maybe, display an error saying account does not exist?
+         *                  }
+         *              });
+         *              break;
+         *          case API.StatusCode.FORBIDDEN:
+         *              // display some kind of error?
+         *              break; 
+         *      }
+         * });
+         * @returns {Promise<Repsonse>}
+     */
+    export function activateAccount(activationCode: string) : Promise<Response> {
         return post(`${API.URL}/Activate`, {
-            hash: hash
+            hash: activationCode
         });
     }
     
+    /**
+         * Registers an account (used for sign up!)
+         * @param {string} username 
+         * @param {string} email 
+         * @param {string} password 
+         * @example
+         * API.registerAccount(username: "test", email: "test@test.com", password: "125oiasdoa").then(response => {
+            switch(response.code) {
+                case API.StatusCode.OK:
+                    // handle okay response
+                    break;
+                case API.StatusCode.FORBIDDEN:
+                    // handle forbidden?? server broke.
+                    break;
+            }
+         * });
+         * @returns {Promise<Repsonse>}
+     */
     export function registerAccount(username: string, email: string, password: string) : Promise<Response> {
         return post(`${API.URL}/Registration`, {
             username: username,
@@ -94,9 +186,14 @@ export namespace API {
         });
     }
 
-    export function userLogin(id: string, password: string) : Promise<Response> {
+    /**
+         * @param {string} usernameOrEmail the username or email you want to provide to login with
+         * @param {string} password the password for the user
+         * @returns {Promise<Repsonse>}
+     */
+    export function userLogin(usernameOrEmail: string, password: string) : Promise<Response> {
         return post(`${API.URL}/User`, {
-            id: id,
+            usernameOrEmail: usernameOrEmail,
             password: password
         });
     }
