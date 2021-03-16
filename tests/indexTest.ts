@@ -1,4 +1,4 @@
-import { createParagraphWithMessage } from '../src/index';
+/* import { createParagraphWithMessage } from '../src/index';
 import { expect } from 'chai';
 
 describe('index Tests', () => {
@@ -13,4 +13,4 @@ describe('index Tests', () => {
             expect(startMessage.textContent).to.equal(message);
         })
     });
-});
+}); */
