@@ -1,0 +1,33 @@
+on:
+  workflow_dispatch:
+    branches: [ master ]
+
+env:
+  NODE_VERSION: '14.15.3'
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install, build, and test
+      run: |
+        # Build and test the project, then
+        npm install
+        npm audit fix
+        npm run build --if-present
+        npm run test --if-present
+    - name: FTP
+      uses: sebastianpopp/ftp-action@releases/v2
+      with:
+        host: connieprice.co.uk
+        user: brimark
+        password: ${{ secrets.ftp_password }}
+        localDir: /home/runner/work/brimark-frontend/brimark-frontend/dist/
+        remoteDir: test_html
