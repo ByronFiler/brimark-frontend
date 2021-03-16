@@ -192,7 +192,7 @@ export namespace API {
          * @returns {Promise<Repsonse>}
      */
     export function userLogin(usernameOrEmail: string, password: string) : Promise<Response> {
-        return post(`${API.URL}/User`, {
+        return post(`${API.URL}/Login`, {
             usernameOrEmail: usernameOrEmail,
             password: password
         });
