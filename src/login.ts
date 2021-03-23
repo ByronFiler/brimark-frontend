@@ -16,6 +16,12 @@ if(loginForm) {
             switch(response.status) {
                 case API.StatusCode.OK:
                     console.log(response);
+                    jsonData.then(data => {
+                        API.setCookie({
+                            "SID": data.sessionID
+                        });
+                    });
+                    
                     break;
                 case API.StatusCode.FORBIDDEN:
                     jsonData.then(data => {
