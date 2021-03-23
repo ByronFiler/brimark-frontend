@@ -4,6 +4,16 @@ const loginForm : HTMLElement | null = document.getElementById('loginForm');
 const usernameOrEmail : HTMLInputElement = document.getElementById('usernameOrEmail') as HTMLInputElement;
 const password: HTMLInputElement = document.getElementById('password') as HTMLInputElement;
 
+function redirectToIndexPage() : void {
+    API.redirectToPage("/index.html");
+}
+
+let SID : string = API.getCookieValue("SID");
+
+if(SID && SID !== "") {
+    redirectToIndexPage();
+}
+
 if(loginForm) {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -15,13 +25,12 @@ if(loginForm) {
 
             switch(response.status) {
                 case API.StatusCode.OK:
-                    console.log(response);
                     jsonData.then(data => {
                         API.setCookie({
                             "SID": data.sessionID
                         });
+                        redirectToIndexPage();
                     });
-                    
                     break;
                 case API.StatusCode.FORBIDDEN:
                     jsonData.then(data => {
