@@ -207,14 +207,18 @@ export namespace API {
     export function setCookie(cookieRecord: Record<string, string>, expiryIndDays?: number) : void {
         expiryIndDays = expiryIndDays || 14; // 2 week release period by default
 
-        let d : Date = new Date();
-        d.setTime(d.getTime() + (expiryIndDays*24*60*60*1000));
-
-        let cookieString : string = "";
-        let expiry : string = `expires=${d.toUTCString}`;
-
-        for(let cookie in cookieRecord) {
-            console.log(cookie);
+        if(cookieRecord) {
+            let d : Date = new Date();
+            d.setTime(d.getTime() + (expiryIndDays*24*60*60*1000));
+    
+            let cookieString : string = "";
+            let expiry : string = `expires=${d.toUTCString}`;
+    
+            for(const [key, value] of Object.entries(cookieRecord)) {
+                cookieString += `${key}=${value};${expiry};`;
+            }
+    
+            console.log(cookieString);
         }
     }
 }
