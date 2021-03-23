@@ -212,15 +212,36 @@ export namespace API {
             d.setTime(d.getTime() + (expiryIndDays*24*60*60*1000));
     
             let cookieString : string = "";
-            let expiry : string = `expires=${d.toUTCString()}`;
-    
+
             for(const [key, value] of Object.entries(cookieRecord)) {
-                cookieString += `${key}=${value};${expiry};`;
+                cookieString += `${key}=${value};`;
             }
-    
-            console.log(cookieString);
+
+            cookieString += `expires=${d.toUTCString()};`;
+
+            document.cookie = cookieString;
         }
     }
+
+    export function getCookieValue(cookieName: string) : string {
+        let name : string = `${cookieName}=`;
+        let decodedCookie : string = decodeURIComponent(document.cookie);
+        let cookies : string[] = decodedCookie.split(';');
+        for(let i=0; i < cookies.length; i++) {
+            let cookie = cookies[i];
+            while(cookie.charAt(0) == ' ') {
+                cookie = cookie.substring(1);
+            }
+            if(cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return "";
+    }
+
+    export function redirectToPage(url: string) : void {
+        window.location.replace(url);
+    };
 }
 
 
