@@ -46,8 +46,10 @@ export namespace API {
 
     export enum StatusCode {
         OK = 200,
+        CREATED = 201,
         NO_CONTENT = 204,
         BAD_REQUEST = 400,
+        UNAUTHORIZED = 401,
         FORBIDDEN = 403,
         METHOD_NOT_ALLOWED = 405,
         INTERNAL_SERVER_ERROR = 500     
@@ -200,6 +202,20 @@ export namespace API {
             usernameOrEmail: usernameOrEmail,
             password: password
         });
+    }
+
+    export function setCookie(cookieRecord: Record<string, string>, expiryIndDays?: number) : void {
+        expiryIndDays = expiryIndDays || 14; // 2 week release period by default
+
+        let d : Date = new Date();
+        d.setTime(d.getTime() + (expiryIndDays*24*60*60*1000));
+
+        let cookieString : string = "";
+        let expiry : string = `expires=${d.toUTCString}`;
+
+        for(let cookie in cookieRecord) {
+            console.log(cookie);
+        }
     }
 }
 
